@@ -307,15 +307,16 @@ namespace Bitebi9
 			return $this->request('order', null, null, $postData, 'POST', $postData);
 			//return $this->request('order', null, null, null	, 'POST', $postData);
 		}
+		
 		public function orderInfo($orderid)
 		{
 			if($orderid == null)
 			{
-				return $this->request('markets/triggers');
+				return false;
 			}
 			else
 			{
-				return $this->request('markets/triggers', $orderid);
+				return $this->request('order', $orderid);
 			}
 		}
 
@@ -323,11 +324,11 @@ namespace Bitebi9
 		{
 			if($orderid == null)
 			{
-				return $this->request('markets/triggers');
+				return false;
 			}
 			else
 			{
-				return $this->request('markets/triggers', $orderid);
+				return $this->request('order', $orderid, null, null, 'DELETE');
 			}
 		}
 
